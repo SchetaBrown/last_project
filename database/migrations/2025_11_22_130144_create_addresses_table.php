@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('addresses', function (Blueprint $table) {
             $table->id();
+            $table->string('street');
+            $table->string('home');
+            $table->string('longitude');
+            $table->string('latitude');
             $table->timestamps();
         });
     }

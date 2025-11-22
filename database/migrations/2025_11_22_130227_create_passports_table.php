@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,6 +12,12 @@ return new class extends Migration
     {
         Schema::create('passports', function (Blueprint $table) {
             $table->id();
+            $table->string('number', 6);
+            $table->string('series', 4);
+            $table->date('issue_date');
+            $table->date('issuer');
+            $table->foreignId('status_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }

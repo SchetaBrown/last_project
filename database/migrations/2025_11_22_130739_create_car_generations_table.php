@@ -13,6 +13,18 @@ return new class extends Migration
     {
         Schema::create('car_generations', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->integer('power');
+            $table->date('year');
+            $table->integer('seat_quantity');
+            $table->float('cost_per_day');
+            $table->foreignId('status_id')->constrained();
+            $table->foreignId('car_model_id')->constrained();
+            $table->foreignId('gear_id')->constrained();
+            $table->foreignId('fuel_id')->constrained();
+            $table->foreignId('wheel_id')->constrained();
+            $table->foreignId('transmission_id')->constrained();
+            $table->foreignId('car_case_id')->constrained();
             $table->timestamps();
         });
     }

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('social_accounts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained();
+            $table->foreignId('provider_id')->constrained();
             $table->timestamps();
         });
     }

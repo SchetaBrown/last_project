@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('drive_licenses', function (Blueprint $table) {
             $table->id();
+            $table->string('number', 6);
+            $table->string('series', 4);
+            $table->date('issue_date');
+            $table->foreignId('status_id')->constrained();
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
