@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->integer('power');
-            $table->date('year');
+            $table->year('year');
             $table->integer('seat_quantity');
             $table->float('cost_per_day');
             $table->foreignId('status_id')->constrained();

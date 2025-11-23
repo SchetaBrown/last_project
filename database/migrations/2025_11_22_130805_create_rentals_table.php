@@ -20,8 +20,8 @@ return new class extends Migration {
             $table->foreignId('status_id')->constrained();
             $table->foreignId('user_id')->constrained();
             $table->foreignId('car_generation_id')->constrained();
-            $table->foreignId('start_location_id')->constrained();
-            $table->foreignId('end_location_id')->constrained();
+            $table->foreignId('start_location_id')->references('id')->on('addresses');
+            $table->foreignId('end_location_id')->references('id')->on('addresses');
             $table->foreignId('payment_id')->constrained();
             $table->timestamps();
         });
