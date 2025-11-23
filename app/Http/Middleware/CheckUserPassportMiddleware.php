@@ -3,9 +3,10 @@
 namespace App\Http\Middleware;
 
 use Auth;
+use Closure;
+use App\Models\Passport;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Closure;
 
 class CheckUserPassportMiddleware
 {
@@ -16,9 +17,9 @@ class CheckUserPassportMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $driveLicense = DriveLicense::where('user_id', Auth::id())->with(['status'])->first();
-        if ($driveLicense->status->title !== 'verified' || $driveLicense->status->null) {
-            return redirect()->back()->with('error', 'Обновите В/У');
+        $passport = Passport::where('user_id', Auth::id())->with(['status'])->first();
+        if ($passport->status->title !== 'verified' || $passport->status->title === null) {
+            return redirect()->back()->with('error', 'Обновите паспортные данные');
         }
         return $next($request);
     }

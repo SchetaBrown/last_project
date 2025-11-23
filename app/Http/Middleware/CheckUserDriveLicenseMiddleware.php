@@ -18,9 +18,9 @@ class CheckUserDriveLicenseMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $passport = Passport::where('user_id', Auth::id())->with(['status'])->first();
-        if ($passport->status->title !== 'verified' || $passport->status->null) {
-            return redirect()->back()->with('error', 'Обновите паспортные данные');
+        $driveLicense = DriveLicense::where('user_id', Auth::id())->with(['status'])->first();
+        if ($driveLicense->status->title !== 'verified' || $driveLicense->status->title === null) {
+            return redirect()->back()->with('error', 'Обновите В/У');
         }
 
         return $next($request);
