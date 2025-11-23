@@ -4,17 +4,16 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Payment extends Model
+class UserProfile extends Model
 {
     protected $fillable = [
-        'total_price',
-        'status_id',
-        'user_id',
+        'surname',
+        'name',
+        'patronymic',
+        'age',
+        'user_id'
     ];
 
-    public function status() {
-        return $this->belongsTo(Status::class);
-    }
     public function user() {
         return $this->belongsTo(User::class);
     }

@@ -2,17 +2,16 @@
 
 namespace App\Models;
 
-use App\Models\User\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class CarBrand extends Model
 {
     protected $fillable = [
         'title'
     ];
 
-    public function user()
-    {
-        return $this->hasMany(User::class);
+    // Связи
+    public function carModel() {
+        return $this->hasMany(CarModel::class);
     }
 }

@@ -12,6 +12,7 @@ return new class extends Migration {
     {
         Schema::create('passports', function (Blueprint $table) {
             $table->id();
+            $table->string('image');
             $table->string('number', 6);
             $table->string('series', 4);
             $table->date('issue_date');

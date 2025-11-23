@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -13,8 +12,8 @@ return new class extends Migration
     {
         Schema::create('drive_licenses', function (Blueprint $table) {
             $table->id();
-            $table->string('number', 6);
-            $table->string('series', 4);
+            $table->string('image');
+            $table->string('number', 10);
             $table->date('issue_date');
             $table->foreignId('status_id')->constrained();
             $table->foreignId('user_id')->constrained();

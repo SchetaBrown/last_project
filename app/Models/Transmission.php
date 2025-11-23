@@ -2,17 +2,15 @@
 
 namespace App\Models;
 
-use App\Models\User\User;
 use Illuminate\Database\Eloquent\Model;
 
-class Role extends Model
+class Transmission extends Model
 {
     protected $fillable = [
         'title'
     ];
 
-    public function user()
-    {
-        return $this->hasMany(User::class);
+    public function carGeneration() {
+        return $this->hasMany(CarGeneration::class);
     }
 }

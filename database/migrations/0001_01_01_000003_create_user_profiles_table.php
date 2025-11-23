@@ -10,10 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('user_drive_license_categories', function (Blueprint $table) {
+        Schema::create('user_profiles', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('drive_license_category_id')->constrained();
-            $table->foreignId('drive_license_id')->constrained();
+            $table->string('surname');
+            $table->string('name');
+            $table->string('patronymic');
+            $table->integer('age');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -23,6 +26,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_drive_license_categories');
+        Schema::dropIfExists('user_profiles');
     }
 };
